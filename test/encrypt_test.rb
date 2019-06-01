@@ -17,7 +17,7 @@ class EncryptTest < Minitest::Test
 
   def test_encrypt_class_has_attributes
 
-    expected =  @enigma.random_number_generator
+    expected =  @enigma.shift_to_hash
     actual =
     assert_equal expected, actual
   end
@@ -31,5 +31,4 @@ class EncryptTest < Minitest::Test
     }
     actual = @enigma.encrypt
   end
-
 end

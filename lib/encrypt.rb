@@ -5,19 +5,31 @@ class Encrypt
     @key = key
   end
 
-  def random_number_generator
-    rand(10000...99999)
+  def message_to_ord_values
+    chars = @message.downcase.chars
+    ords = chars.map {|char| char.ord}
+    ords.map do |num|
+      if num.to_i == 32
+        then num.to_i - 5
+      else
+        num.to_i - 96
+      end
+    end
   end
 
   def create_alphabet_ordninal_value_hash
     alpha_num = Hash.new
     alphabet = ('a'..'z').to_a << " "
-    numbers =  (alphabet.map {|char| char.ord})
+    numbers =  (1..27)
     zipped = alphabet.zip(numbers)
     zipped.map do |combo|
     alpha_num[combo[1]] = combo[0]
     end
     alpha_num
+  end
+
+  def random_number_generator
+    rand(10000...99999)
   end
 
   def create_key
@@ -40,20 +52,25 @@ class Encrypt
     repeat
   end
 
-  def shift
-    ords_and_keys = message_to_ord_values.zip(loop_key)
-    ords_and_keys.map do |o_k|
-    o_k.first.to_i + o_k.last.to_i
+  def create_offset_keys
+  end
+
+
+def shift
+  ords_and_keys = message_to_ord_values.zip(loop_key)
+  ords_and_keys.map do |o_k|
+  ord = o_k.first.to_i + o_k.last.to_i
+      if ord > 27
+        then  ord % 27
+      else ord
+      end
     end
   end
 
 
-
-  def message_to_ord_values
-    chars = @message.downcase.chars
-    ords = chars.map {|char| char.ord}
-  end
-
-  def create_offset_keys
+def shift_to_hash
+  shift.map do |key|
+    create_alphabet_ordninal_value_hash[key]
+  end.join
   end
 end
