@@ -1,4 +1,4 @@
 class Decrypt
-  def initiailze(message, key, date)
+  def initiailze(message)
   end
-end 
+end

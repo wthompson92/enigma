@@ -5,11 +5,11 @@ require './lib/encrypt'
 
 class DecryptTest < Minitest::Test
   def setup
-
+    @enigma = Decrypt.new("hello world")
   end
   def test_decrypt_class_exists
     expected =
-    actual =
+    actual = @enigma.create_alphabet
     assert_instance_of expected, actual
   end
 
