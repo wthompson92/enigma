@@ -24,15 +24,21 @@ class Encrypt
     chunked_nums << (key_nums[2] + key_nums[3])
     chunked_nums << (key_nums[3] + key_nums[4])
   end
+  
+  def loop_key
+    number = (message_to_ord_values.count / 4).ceil + 1
+    repeat = []
+    number.times do
+      create_key.each do |key|
+        repeat << key
+      end
+    end
+    repeat
+  end
 
   def message_to_ord_values
     chars = @message.downcase.chars
     ords = chars.map {|char| char.ord}
-  end
-
-  def shift
-    message_to_ord_values.map {v + 5}
-    message
   end
 
   def random_number_generator
