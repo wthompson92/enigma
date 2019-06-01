@@ -5,6 +5,10 @@ class Encrypt
     @key = key
   end
 
+  def random_number_generator
+    rand(10000...99999)
+  end
+
   def create_alphabet_ordninal_value_hash
     alpha_num = Hash.new
     alphabet = ('a'..'z').to_a << " "
@@ -39,10 +43,6 @@ class Encrypt
   def message_to_ord_values
     chars = @message.downcase.chars
     ords = chars.map {|char| char.ord}
-  end
-
-  def random_number_generator
-  rand(10000...99999)
   end
 
   def create_offset_keys

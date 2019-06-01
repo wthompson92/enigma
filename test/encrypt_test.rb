@@ -8,6 +8,7 @@ class EncryptTest < Minitest::Test
   def setup
     @enigma = Encrypt.new("hello world", 12345)
   end
+
   def test_encrypt_class_exists
     expected = Encrypt
     actual = @enigma
@@ -15,7 +16,8 @@ class EncryptTest < Minitest::Test
   end
 
   def test_encrypt_class_has_attributes
-    expected =  @enigma.create_key
+
+    expected =  @enigma.random_number_generator
     actual =
     assert_equal expected, actual
   end
@@ -27,7 +29,7 @@ class EncryptTest < Minitest::Test
     key: "02715",
     date: "040895"
     }
-    actual = @enigma.encrypt("hello world", "02715", "040895")
+    actual = @enigma.encrypt
   end
 
 end
