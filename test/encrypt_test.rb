@@ -31,4 +31,5 @@ class EncryptTest < Minitest::Test
     }
     actual = @enigma.encrypt
   end
+
 end
