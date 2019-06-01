@@ -5,7 +5,7 @@ class Encrypt
     @key = key
   end
 
-  def message_to_ord_values
+  def message_ords_to_alpha_nums
     chars = @message.downcase.chars
     ords = chars.map {|char| char.ord}
     ords.map do |num|
@@ -42,7 +42,7 @@ class Encrypt
   end
 
   def loop_key
-    number = (message_to_ord_values.count / 4).ceil + 1
+    number = (message_ords_to_alpha_nums.count / 4).ceil + 1
     repeat = []
     number.times do
       create_key.each do |key|
@@ -55,22 +55,24 @@ class Encrypt
   def create_offset_keys
   end
 
-
-def shift
-  ords_and_keys = message_to_ord_values.zip(loop_key)
-  ords_and_keys.map do |o_k|
-  ord = o_k.first.to_i + o_k.last.to_i
-      if ord > 27
-        then  ord % 27
-      else ord
+  def shift
+    ords_and_keys = message_ords_to_alpha_nums.zip(loop_key)
+    ords_and_keys.map do |o_k|
+      ord = o_k.first.to_i + o_k.last.to_i
+        if ord > 27
+          then  ord % 27
+        else ord
       end
     end
   end
 
-
-def shift_to_hash
-  shift.map do |key|
+  def shifted
+    shift.map do |key|
     create_alphabet_ordninal_value_hash[key]
-  end.join
+    end.join
+  end
+
+  def encrypt
+    encrypt_hash = {encryption: shifted, key: @key.to_s}
   end
 end
