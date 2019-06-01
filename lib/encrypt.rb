@@ -67,7 +67,6 @@ def shift
     end
   end
 
-
 def shift_to_hash
   shift.map do |key|
     create_alphabet_ordninal_value_hash[key]

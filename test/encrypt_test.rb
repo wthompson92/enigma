@@ -6,7 +6,7 @@ require 'date'
 
 class EncryptTest < Minitest::Test
   def setup
-    @enigma = Encrypt.new("hello world", 12345)
+    @enigma = Encrypt.new("hello world", 54321)
   end
 
   def test_encrypt_class_exists
