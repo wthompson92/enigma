@@ -24,7 +24,7 @@ class Encrypt
     chunked_nums << (key_nums[2] + key_nums[3])
     chunked_nums << (key_nums[3] + key_nums[4])
   end
-  
+
   def loop_key
     number = (message_to_ord_values.count / 4).ceil + 1
     repeat = []
@@ -42,6 +42,7 @@ class Encrypt
   end
 
   def random_number_generator
+  rand(10000...99999)
   end
 
   def create_offset_keys
