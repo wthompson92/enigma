@@ -40,6 +40,15 @@ class Encrypt
     repeat
   end
 
+  def shift
+    ords_and_keys = message_to_ord_values.zip(loop_key)
+    ords_and_keys.map do |o_k|
+    o_k.first.to_i + o_k.last.to_i
+    end
+  end
+
+
+
   def message_to_ord_values
     chars = @message.downcase.chars
     ords = chars.map {|char| char.ord}
