@@ -35,6 +35,17 @@ class EncryptTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_it_can_create_date
+    expected = 4
+    actual = @enigma.create_date.count
+    assert_equal expected, actual
+  end
+
+  def test_it_can_create_offset
+    expected = 4
+    actual = @enigma.create_offset.count
+    assert_equal expected, actual
+  end
 
   def test_random_num_generator_method
     expected = 5

@@ -59,7 +59,7 @@ module HelperModule
   def create_offset
     array = create_date.zip(create_key)
     array.map do |code|
-      code[0] +code[1]
+      code[0].to_i + code[1].to_i
     end
   end
 

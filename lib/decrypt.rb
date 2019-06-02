@@ -6,6 +6,7 @@ class Decrypt
   def initialize(hash)
     @message = hash[:encryption]
     @key = hash[:key]
+    @date = hash[:date]
   end
 
     def unshift
