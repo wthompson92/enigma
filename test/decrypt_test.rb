@@ -15,8 +15,20 @@ class DecryptTest < Minitest::Test
     assert_instance_of expected, actual
   end
 
-  def test_decrypt_class_exists
-    expected = Decrypt
+  def test_unshift_method
+    expected = [19, 22, 15, 15, 12, 27, 4, 12, 9, 15, 23]
+    actual = @decrypt_enigma.unshift
+    assert_equal expected, actual
+  end
+
+  def test_refine_method
+    expected = [8, 5, 12, 12, 15, 27, 23, 15, 18, 12, 4]
+    actual = @decrypt_enigma.refine
+    assert_equal expected, actual
+  end
+
+  def test_decode_method
+    expected = "hello world"
     actual = @decrypt_enigma.decode
     assert_equal expected, actual
   end

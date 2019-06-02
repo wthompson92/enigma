@@ -35,6 +35,17 @@ class EncryptTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_it_can_create_date
+    expected = 4
+    actual = @enigma.create_date.count
+    assert_equal expected, actual
+  end
+
+  def test_it_can_create_offset
+    expected = 4
+    actual = @enigma.create_offset.count
+    assert_equal expected, actual
+  end
 
   def test_random_num_generator_method
     expected = 5
@@ -43,9 +54,9 @@ class EncryptTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_loop_key_method
+  def test_loop_offset_method
     expected =
-    actual = @enigma.loop_key.count
+    actual = @enigma.loop_offset.count
     assert_equal expected, actual
   end
 
@@ -63,11 +74,10 @@ class EncryptTest < Minitest::Test
   end
 
   def test_it_can_encrypt
-
     expected = {
-    encryption: @enigma.encode,
-    key: "54321",
-    date: "040895"
+      encryption: @enigma.encode,
+      key: "54321",
+      date: "010619"
     }
     actual = @enigma.encrypt
     assert_equal expected, actual

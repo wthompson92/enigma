@@ -6,10 +6,11 @@ class Decrypt
   def initialize(hash)
     @message = hash[:encryption]
     @key = hash[:key]
+    @date = hash[:date]
   end
 
     def unshift
-        ords_and_keys = message_ords_to_alpha_nums.zip(loop_key)
+        ords_and_keys = message_ords_to_alpha_nums.zip(loop_offset)
         ords_and_keys.map do |o_k|
           ord = o_k.last.to_i - o_k.first.to_i
             if ord > 27
