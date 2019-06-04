@@ -1,13 +1,10 @@
 require './lib/helper_module'
 class Encrypt
   include HelperModule
-  def initialize(message, key)
+  def initialize(message, key, date)
     @message = message
     @key = key
-  end
-
-  def random_number_generator
-    rand(10000...99999)
+    @date = date
   end
 
   def shift
@@ -25,9 +22,5 @@ class Encrypt
     shift.map do |key|
       create_alphabet_ordninal_value_hash[key]
     end.join
-  end
-
-  def encrypt
-    encrypt_hash = {encryption: encode, key: @key.to_s, date: get_date}
   end
 end
