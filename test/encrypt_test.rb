@@ -28,7 +28,6 @@ class EncryptTest < Minitest::Test
     assert_equal expected, actual
   end
 
-
   def test_it_can_create_key
     expected = 4
     actual = @enigma.create_key.count
@@ -65,7 +64,6 @@ class EncryptTest < Minitest::Test
     actual = @enigma.shift
     refute_equal  expected, actual
   end
-
 
   def test_encode_method
     expected = "hello world"

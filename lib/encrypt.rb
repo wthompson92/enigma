@@ -1,5 +1,4 @@
 require './lib/helper_module'
-
 class Encrypt
   include HelperModule
   def initialize(message, key)

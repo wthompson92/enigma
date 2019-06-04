@@ -32,4 +32,10 @@ class DecryptTest < Minitest::Test
     actual = @decrypt_enigma.decode
     assert_equal expected, actual
   end
+
+  def test_decrypt_method
+    expected = "hello world"
+    actual = @decrypt_enigma.decrypt
+    assert_equal expected, actual
+  end
 end
