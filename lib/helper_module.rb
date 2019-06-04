@@ -12,21 +12,6 @@ module HelperModule
     end
   end
 
-  def get_date
-    time = Time.now.strftime("%d/%m/%Y").split("/")
-    time.map do |nums|
-      if nums.length > 2
-        then nums[2, 3]
-      else
-        nums
-      end
-    end.join
-  end
-
-  def random_number_generator
-    rand(10000...99999)
-  end
-
   def create_alphabet_ordninal_value_hash
     alpha_num = Hash.new
     alphabet = ('a'..'z').to_a << " "
@@ -47,9 +32,8 @@ module HelperModule
     chunked_nums << (key_nums[3] + key_nums[4])
   end
 
-
   def create_date
-    key_nums = get_date.to_s.split("")
+    key_nums = @date.to_s.split("")
     chunked_nums = []
     chunked_nums << (key_nums[0] + key_nums[1])
     chunked_nums << (key_nums[1] + key_nums[2])

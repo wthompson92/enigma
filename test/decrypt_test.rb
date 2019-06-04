@@ -1,12 +1,12 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/decrypt'
-require './lib/encrypt'
+require './lib/enigma'
 
 class DecryptTest < Minitest::Test
   def setup
     encrypt = Encrypt.new("hello world", 54321)
-    @decrypt_enigma = Decrypt.new(encrypt.encrypt)
+    @decrypt_enigma = Decrypt.new("hello world", 54321)
   end
 
   def test_decrypt_class_exists
@@ -30,12 +30,6 @@ class DecryptTest < Minitest::Test
   def test_decode_method
     expected = "hello world"
     actual = @decrypt_enigma.decode
-    assert_equal expected, actual
-  end
-
-  def test_decrypt_method
-    expected = {:encryption=>"hello world", :key=>"54321", :date=>"030619"}
-    actual = @decrypt_enigma.decrypt
     assert_equal expected, actual
   end
 end

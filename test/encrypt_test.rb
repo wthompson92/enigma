@@ -70,14 +70,4 @@ class EncryptTest < Minitest::Test
     actual = @enigma.encode
     refute_equal expected, actual
   end
-
-  def test_it_can_encrypt
-    expected = {
-      encryption: @enigma.encode,
-      key: "54321",
-      date: "030619"
-    }
-    actual = @enigma.encrypt
-    assert_equal expected, actual
-  end
 end

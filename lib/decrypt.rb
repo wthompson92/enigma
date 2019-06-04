@@ -2,10 +2,10 @@ require './lib/helper_module'
 class Decrypt
   include HelperModule
 
-  def initialize(hash)
-    @message = hash[:encryption]
-    @key = hash[:key]
-    @date = hash[:date]
+  def initialize(message, key, date)
+    @message = message
+    @key = key
+    @date = date
   end
 
   def unshift
@@ -34,8 +34,4 @@ class Decrypt
       create_alphabet_ordninal_value_hash[key]
     end.join
   end
-
-  def decrypt
-    encrypt_hash = {encryption: decode, key: @key, date: get_date}
-    end
 end
