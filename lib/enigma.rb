@@ -1,7 +1,5 @@
 require './lib/helper_module'
-require 'date'
 class Enigma
-
   def get_date
     time = Time.now.strftime("%d/%m/%Y").split("/")
     time.map do |nums|

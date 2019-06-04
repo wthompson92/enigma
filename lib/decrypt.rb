@@ -1,7 +1,7 @@
 require './lib/helper_module'
 class Decrypt
   include HelperModule
-
+  
   def initialize(message, key, date)
     @message = message
     @key = key

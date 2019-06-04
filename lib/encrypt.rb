@@ -1,6 +1,4 @@
 require './lib/helper_module'
-require './lib/enigma'
-
 class Encrypt
   include HelperModule
   def initialize(message, key, date)

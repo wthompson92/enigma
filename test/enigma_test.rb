@@ -2,9 +2,10 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/decrypt'
 require './lib/encrypt'
+require './lib/enigma'
 require 'date'
 
-class EncryptTest < Minitest::Test
+class EnigmaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
   end
@@ -27,7 +28,6 @@ class EncryptTest < Minitest::Test
     actual =
     assert_equal expected, actual
   end
-
 
   def test_enigma_class_can_encrypt
     expected =  {:encryption=>"kxwmrsgpudo", :key=>"54321", :date=>"030619"}
