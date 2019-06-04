@@ -1,12 +1,10 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './lib/test_helper'
 require './lib/decrypt'
 require './lib/enigma'
 
 class DecryptTest < Minitest::Test
   def setup
-    encrypt = Encrypt.new("hello world", 54321)
-    @decrypt_enigma = Decrypt.new("hello world", 54321)
+    @decrypt_enigma = Decrypt.new("lgwmsbgpvno", 54321, "040619")
   end
 
   def test_decrypt_class_exists
