@@ -1,12 +1,11 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './lib/test_helper'
 require './lib/decrypt'
 require './lib/encrypt'
 require 'date'
 
 class EncryptTest < Minitest::Test
   def setup
-    @enigma = Encrypt.new("hello world", 54321)
+    @enigma = Encrypt.new("hello world", 54321, "040619")
   end
 
   def test_encrypt_class_exists
@@ -43,13 +42,6 @@ class EncryptTest < Minitest::Test
   def test_it_can_create_offset
     expected = 4
     actual = @enigma.create_offset.count
-    assert_equal expected, actual
-  end
-
-  def test_random_num_generator_method
-    expected = 5
-    actual = @enigma.random_number_generator.to_s.split("").count
-    assert_equal expected, actual
     assert_equal expected, actual
   end
 

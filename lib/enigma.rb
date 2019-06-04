@@ -1,5 +1,8 @@
 require './lib/helper_module'
+require 'date'
+require 'pry'
 class Enigma
+
   def get_date
     time = Time.now.strftime("%d/%m/%Y").split("/")
     time.map do |nums|
@@ -15,13 +18,13 @@ class Enigma
     rand(10000...99999)
   end
 
-  def encrypt(message, key, date = nil)
+  def encrypt(message, key = nil, date = nil)
     if key == nil
       key = random_number_generator
     elsif date == nil
       date = get_date
     encrypt = Encrypt.new(message, key, date)
-    encrypt_hash = {encryption: encrypt.encode, key: key.to_s, date: get_date}
+    encrypt_hash = {encryption: encrypt.encode, key: key.to_s, date: date}
     end
   end
 
@@ -31,7 +34,7 @@ class Enigma
     elsif date == nil
       date = get_date
     decrypt = Decrypt.new(message, key, date)
-    encrypt_hash = {decryption: decrypt.decode, key: key.to_s, date: get_date}
+    encrypt_hash = {decryption: decrypt.decode, key: key.to_s, date: date}
     end
   end
 end
