@@ -75,7 +75,7 @@ class EncryptTest < Minitest::Test
     expected = {
       encryption: @enigma.encode,
       key: "54321",
-      date: "010619"
+      date: "030619"
     }
     actual = @enigma.encrypt
     assert_equal expected, actual

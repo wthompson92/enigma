@@ -5,8 +5,8 @@ require './lib/encrypt'
 
 class DecryptTest < Minitest::Test
   def setup
-    enigma = Encrypt.new("hello world", 54321)
-    @decrypt_enigma = Decrypt.new(enigma.encrypt)
+    encrypt = Encrypt.new("hello world", 54321)
+    @decrypt_enigma = Decrypt.new(encrypt.encrypt)
   end
 
   def test_decrypt_class_exists
@@ -16,7 +16,7 @@ class DecryptTest < Minitest::Test
   end
 
   def test_unshift_method
-    expected = [19, 22, 15, 15, 12, 27, 4, 12, 9, 15, 23]
+    expected = [19, 22, 15, 15, 12, 0, 4, 12, 9, 15, 23]
     actual = @decrypt_enigma.unshift
     assert_equal expected, actual
   end
@@ -34,7 +34,7 @@ class DecryptTest < Minitest::Test
   end
 
   def test_decrypt_method
-    expected = "hello world"
+    expected = {:encryption=>"hello world", :key=>"54321", :date=>"030619"}
     actual = @decrypt_enigma.decrypt
     assert_equal expected, actual
   end

@@ -33,9 +33,9 @@ class Decrypt
     refine.map do |key|
       create_alphabet_ordninal_value_hash[key]
     end.join
+  end
 
   def decrypt
     encrypt_hash = {encryption: decode, key: @key, date: get_date}
     end
-  end
 end
