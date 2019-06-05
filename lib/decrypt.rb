@@ -1,13 +1,12 @@
 require './lib/helper_module'
 class Decrypt
   include HelperModule
-  
   def initialize(message, key, date)
     @message = message
     @key = key
     @date = date
   end
-
+  
   def unshift
     ords_and_keys = message_ords_to_alpha_nums.zip(loop_offset)
     ords_and_keys.map do |o_k|

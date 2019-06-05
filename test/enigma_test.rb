@@ -16,8 +16,8 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_enigma_it_can_get_the_date
-    expected =  {:encryption=>"lgwmsbgpvno", :key=>"54321", :date=>"040619"}
-    actual = @enigma.encrypt("hello world", 54321,)
+    expected =  "040619"
+    actual = @enigma.get_date
     assert_equal expected, actual
   end
 
@@ -28,14 +28,30 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_enigma_class_can_encrypt
-    expected =  {:encryption=>"lgwmsbgpvno", :key=>"54321", :date=>"040619"}
+    expected = {:encryption=>"lgwmsbgpvno", :key=> "54321", :date=>"040619"}
+    actual = @enigma.encrypt("hello world", "54321", "040619")
+    assert_equal expected, actual
+
+    expected = {:encryption=>"lgwmsbgpvno", :key=>"54321", :date=>"040619"}
+    Enigma.any_instance.stubs(:get_date).returns("040619")
     actual = @enigma.encrypt("hello world", 54321)
+    assert_equal expected, actual
+
+    expected = {:encryption=>"lgwmsbgpvno", :key=>"54321", :date=>"040619"}
+    Enigma.any_instance.stubs(:get_date).returns("040619")
+    Enigma.any_instance.stubs(:random_number_generator).returns("54321")
+    actual = @enigma.encrypt("hello world")
     assert_equal expected, actual
   end
 
   def test_enigma_class_can_decrypt
     expected = {:decryption=>"hello world", :key=>"54321", :date=>"040619"}
+    Enigma.any_instance.stubs(:get_date).returns("040619")
     actual = @enigma.decrypt("lgwmsbgpvno", 54321)
     assert_equal expected, actual
   end
+  #   expected = {:decryption=>"hello world", :key=>"54321", :date=>"040619"}
+  #   actual = @enigma.decrypt(54321)
+  #   assert_equal expected, actual
+  # end
 end
