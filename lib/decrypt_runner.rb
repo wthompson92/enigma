@@ -9,5 +9,4 @@ decrypted_message = enigma.decrypt(read, ARGV[2], ARGV[3])
 decrypted = File.open(ARGV[1], "w")
 decrypted.write(decrypted_message[:decryption])
 decrypted.close
-# binding.pry
 puts "Created '#{ARGV[1]}' with the key #{decrypted_message[:key]} and date #{decrypted_message[:date]}"

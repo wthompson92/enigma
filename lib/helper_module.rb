@@ -15,7 +15,7 @@ module HelperModule
   def create_alphabet_ordninal_value_hash
     alpha_num = Hash.new
     alphabet = ('a'..'z').to_a << " "
-    numbers =  (1..27)
+    numbers = (1..27)
     zipped = alphabet.zip(numbers)
     zipped.map do |combo|
       alpha_num[combo[1]] = combo[0]
