@@ -46,7 +46,7 @@ class EncryptTest < Minitest::Test
   end
 
   def test_loop_offset_method
-    expected =
+    expected = 
     actual = @enigma.loop_offset.count
     assert_equal expected, actual
   end
