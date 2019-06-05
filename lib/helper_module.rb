@@ -4,10 +4,10 @@ module HelperModule
     chars = @message.downcase.chars
     ords = chars.map {|char| char.ord}
     ords.map do |num|
-      if num.to_i == 32
-        then num.to_i - 5
+      if num == 32
+        then num -= 5
       else
-        num.to_i - 96
+        num = num - 96
       end
     end
   end
@@ -24,7 +24,7 @@ module HelperModule
   end
 
   def create_key
-    key_nums = @key.to_s.split("")
+    key_nums = @key.to_s.chars
     chunked_nums = []
     chunked_nums << (key_nums[0] + key_nums[1])
     chunked_nums << (key_nums[1] + key_nums[2])
@@ -33,7 +33,7 @@ module HelperModule
   end
 
   def create_date
-    key_nums = @date.to_s.split("")
+    key_nums = @date.to_s.chars
     chunked_nums = []
     chunked_nums << (key_nums[0] + key_nums[1])
     chunked_nums << (key_nums[1] + key_nums[2])

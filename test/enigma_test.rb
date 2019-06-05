@@ -49,9 +49,9 @@ class EnigmaTest < Minitest::Test
     Enigma.any_instance.stubs(:get_date).returns("040619")
     actual = @enigma.decrypt("lgwmsbgpvno", 54321)
     assert_equal expected, actual
+
+    # expected = {:decryption=>"hello world", :key=>"54321", :date=>"040619"}
+    # actual = @enigma.decrypt(54321)
+    # assert_equal expected, actual
   end
-  #   expected = {:decryption=>"hello world", :key=>"54321", :date=>"040619"}
-  #   actual = @enigma.decrypt(54321)
-  #   assert_equal expected, actual
-  # end
 end

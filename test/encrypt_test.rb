@@ -53,7 +53,6 @@ class EncryptTest < Minitest::Test
 
   def test_shift_method
     expected = [12, 7, 23, 13, 19, 2, 7, 16, 22, 14, 15]
-
     actual = @enigma.shift
     assert_equal  expected, actual
   end
