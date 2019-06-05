@@ -1,4 +1,5 @@
 module HelperModule
+
   def message_ords_to_alpha_nums
     chars = @message.downcase.chars
     ords = chars.map {|char| char.ord}
