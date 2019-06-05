@@ -7,7 +7,7 @@ module HelperModule
       if num == 32
         then num -= 5
       else
-        num = num - 96
+        num -= 96
       end
     end
   end

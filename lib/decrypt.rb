@@ -16,7 +16,6 @@ class Decrypt
       else
         ord
       end
-      ord
     end
   end
 
