@@ -28,7 +28,7 @@ class Enigma
       when key == nil
         key = random_number_generator
       when key != nil
-        key = key
+        key
       end
       encrypt = Encrypt.new(message, key, date)
       encrypt_hash = {encryption: encrypt.encode, key:  key.to_s, date: date}

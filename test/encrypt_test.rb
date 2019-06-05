@@ -28,38 +28,38 @@ class EncryptTest < Minitest::Test
   end
 
   def test_it_can_create_key
-    expected = 4
-    actual = @enigma.create_key.count
+    expected = ["54", "43", "32", "21"]
+    actual = @enigma.create_key
     assert_equal expected, actual
   end
 
   def test_it_can_create_date
-    expected = 4
-    actual = @enigma.create_date.count
+    expected = ["04", "40", "06", "61"]
+    actual = @enigma.create_date
     assert_equal expected, actual
   end
 
   def test_it_can_create_offset
-    expected = 4
-    actual = @enigma.create_offset.count
+    expected = [58, 83, 38, 82]
+    actual = @enigma.create_offset
     assert_equal expected, actual
   end
 
   def test_loop_offset_method
-    expected = 
-    actual = @enigma.loop_offset.count
+    expected = [58, 83, 38, 82, 58, 83, 38, 82, 58, 83, 38, 82]
+    actual = @enigma.loop_offset
     assert_equal expected, actual
   end
 
   def test_shift_method
-    expected = [8, 5, 12, 12, 15, 27, 23, 15, 18, 12, 4]
+    expected = [12, 7, 23, 13, 19, 2, 7, 16, 22, 14, 15]
     actual = @enigma.shift
-    refute_equal  expected, actual
+    assert_equal  expected, actual
   end
 
   def test_encode_method
-    expected = "hello world"
+    expected = "lgwmsbgpvno"
     actual = @enigma.encode
-    refute_equal expected, actual
+    assert_equal expected, actual
   end
 end

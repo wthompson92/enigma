@@ -12,8 +12,9 @@ class Encrypt
     ords_and_keys.map do |o_k|
       ord = o_k.first.to_i + o_k.last.to_i
       if ord > 27
-        then  ord % 27
-      else ord
+        then ord = ord % 27
+      else
+        ord
       end
     end
   end
