@@ -8,12 +8,13 @@ module HelperModule
     zipped.map do |combo|
       alpha_num[combo[1]] = combo[0]
     end
+    alpha_num[0] = " "
     alpha_num
   end
 
   def message_chars_to_alpha_nums
     chars = @message.downcase.chars
-    a = chars.map do |char|
+    chars.map do |char|
     create_alphabet_ordninal_value_hash.invert[char]
     end
   end

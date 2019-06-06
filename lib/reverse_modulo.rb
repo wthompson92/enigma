@@ -1,19 +1,15 @@
 module ReverseModulo
   def reverse_modulo(mod, a, b)
     num = b / mod.to_f
+      if num < 1 then num = num.floor
+      end
+      num
     add = mod * num.round
     sum = a + add
     reduce = sum - b
-    if reduce > mod
-      reduce -= mod
-      elsif reduce == 0
-        reduce += mod
-      elsif reduce < 0
-       reduce = 27 + reduce
-      else
-        reduce
+      if reduce < 0 then reduce = 27 + reduce
+      elsif reduce > mod then reduce -= 27 
     end
-  # end
   reduce
   end
 end
