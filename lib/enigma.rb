@@ -1,4 +1,4 @@
-require './lib/helper_module'
+require './module/helper_module'
 require 'date'
 require 'pry'
 class Enigma
