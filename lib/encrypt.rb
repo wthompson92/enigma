@@ -1,7 +1,7 @@
 require './module/helper_module'
 class Encrypt
   include HelperModule
-  
+
   def initialize(message, key, date)
     @message = message
     @key = key
@@ -14,8 +14,6 @@ class Encrypt
       ord = o_k.first.to_i + o_k.last.to_i
       if ord > 27
         then ord = ord % 27
-      else
-        ord
       end
     end
   end

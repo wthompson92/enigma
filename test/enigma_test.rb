@@ -16,16 +16,15 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_enigma_it_can_get_the_date
-    expected =  "040619"
-    Enigma.any_instance.stubs(:get_date).returns("040619")
+    expected =  "050619"
     actual = @enigma.get_date
     assert_equal expected, actual
   end
 
   def test_random_number_generator_method
-    expected = 5
-    actual = @enigma.random_number_generator.to_s.length
-    assert_equal expected, actual
+    expected = Integer
+    actual = @enigma.random_number_generator
+    assert_instance_of expected, actual
   end
 
   def test_enigma_class_can_encrypt
