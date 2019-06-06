@@ -48,8 +48,8 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, actual
 
     expected = {:encryption=>"dsijkntmnza", :key=>"99999", :date=>"050619"}
-   Enigma.any_instance.stubs(:random_number_generator).returns("99999")
-   Enigma.any_instance.stubs(:get_date).returns("050619")
+    Enigma.any_instance.stubs(:random_number_generator).returns("99999")
+    Enigma.any_instance.stubs(:get_date).returns("050619")
     actual = @enigma.encrypt("hello world")
     assert_equal expected, actual
 
@@ -65,7 +65,6 @@ class EnigmaTest < Minitest::Test
     Enigma.any_instance.stubs(:get_date).returns("040619")
     actual = @enigma.decrypt("lgwmsbgpvno", 54321)
     assert_equal expected, actual
-
 
     expected = {:decryption=>"hello world", :key=>"61941", :date=>"050619"}
     Enigma.any_instance.stubs(:get_date).returns("050619")

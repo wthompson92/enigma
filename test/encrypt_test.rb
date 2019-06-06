@@ -7,7 +7,6 @@ class EncryptTest < Minitest::Test
   def setup
     @enigma = Encrypt.new("hello world", 54321, "040619")
     @enigma_2 = Encrypt.new("hello world", 81765, "050619")
-
   end
 
   def test_encrypt_class_exists

@@ -19,8 +19,8 @@ class Encrypt
   end
 
   def encode
-    a = shift.map do |key|
-      create_alphabet_ordninal_value_hash[key]
+    shift.map do |key|
+    create_alphabet_ordninal_value_hash[key]
     end.join
   end
 end

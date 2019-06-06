@@ -19,17 +19,17 @@ class Enigma
   end
 
   def encrypt(message, key = nil, date = nil)
-      case
-      when date == nil && key == nil
-         date = get_date
-         key = random_number_generator
-      when date == nil then date = get_date
-      when key == nil then key = random_number_generator
-      when key != nil then key
-      end
-      encrypt = Encrypt.new(message, key, date)
-      encrypt_hash = {encryption: encrypt.encode, key:  key.to_s, date: date}
+    case
+    when date == nil && key == nil
+      date = get_date
+      key = random_number_generator
+    when date == nil then date = get_date
+    when key == nil then key = random_number_generator
+    when key != nil then key
     end
+    encrypt = Encrypt.new(message, key, date)
+    encrypt_hash = {encryption: encrypt.encode, key:  key.to_s, date: date}
+  end
 
   def decrypt(message, key, date = nil)
     if date == nil

@@ -1,4 +1,5 @@
-functionality = 3
-OOP = 3
-TDD = 3/2
-Version Control - 3/2
+|   | 4  |3   |  2 | 1  |
+|---|---|---|---|---|
+| OOP  |  X |   |   |   |
+|  Version Control |   |  X |   |   |
+|  TDD |   |  X |   |   |

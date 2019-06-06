@@ -1,5 +1,5 @@
 module HelperModule
-
+  
   def create_alphabet_ordninal_value_hash
     alpha_num = Hash.new
     alphabet = ('a'..'z').to_a << " "

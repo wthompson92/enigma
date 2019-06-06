@@ -12,13 +12,13 @@ class Decrypt
 
   def unshift
     nums_and_keys = message_chars_to_alpha_nums.zip(loop_offset)
-    a = nums_and_keys.map do |o_k|
-    ord = reverse_modulo(27, o_k.first, o_k.last)
+    nums_and_keys.map do |o_k|
+    reverse_modulo(27, o_k.first, o_k.last)
     end
   end
 
   def decode
-    a = unshift.map do |key|
+    unshift.map do |key|
     create_alphabet_ordninal_value_hash[28] = ' '
     create_alphabet_ordninal_value_hash[key]
     end.join
