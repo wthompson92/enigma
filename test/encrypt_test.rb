@@ -6,6 +6,8 @@ require 'date'
 class EncryptTest < Minitest::Test
   def setup
     @enigma = Encrypt.new("hello world", 54321, "040619")
+    @enigma_2 = Encrypt.new("hello world", 81765, "050619")
+
   end
 
   def test_encrypt_class_exists
@@ -15,13 +17,17 @@ class EncryptTest < Minitest::Test
   end
 
   def test_it_can_get_give_letters_int_values
-    expected = [8, 5, 12, 12, 15, 27, 23, 15, 18, 12, 4]
-    actual = @enigma.message_ords_to_alpha_nums
+    expected = [8, 5, 12, 12, 15, 0, 23, 15, 18, 12, 4]
+    actual = @enigma.message_chars_to_alpha_nums
+    assert_equal expected, actual
+
+    expected = [8, 5, 12, 12, 15, 0, 23, 15, 18, 12, 4]
+    actual = @enigma_2.message_chars_to_alpha_nums
     assert_equal expected, actual
   end
 
   def test_it_can_create_alpha_hash
-    expected = {1 => "a", 2 => "b", 3 => "c", 4 => "d", 5 => "e", 6 => "f", 7 => "g", 8 => "h", 9 => "i", 10 => "j", 11 => "k", 12 => "l", 13 => "m", 14 => "n", 15 => "o", 16 => "p", 17 => "q", 18 => "r", 19 => "s" , 20  => "t", 21 => "u", 22 => "v", 23 => "w", 24 => "x", 25 => "y", 26 => "z", 27 => " ",
+    expected = {1 => "a", 2 => "b", 3 => "c", 4 => "d", 5 => "e", 6 => "f", 7 => "g", 8 => "h", 9 => "i", 10 => "j", 11 => "k", 12 => "l", 13 => "m", 14 => "n", 15 => "o", 16 => "p", 17 => "q", 18 => "r", 19 => "s" , 20  => "t", 21 => "u", 22 => "v", 23 => "w", 24 => "x", 25 => "y", 26 => "z", 27 => " ", 0 => " "
     }
     actual = @enigma.create_alphabet_ordninal_value_hash
     assert_equal expected, actual
@@ -30,6 +36,10 @@ class EncryptTest < Minitest::Test
   def test_it_can_create_key
     expected = ["54", "43", "32", "21"]
     actual = @enigma.create_key
+    assert_equal expected, actual
+
+    expected = ["81", "17", "76", "65"]
+    actual = @enigma_2.create_key
     assert_equal expected, actual
   end
 
@@ -43,11 +53,19 @@ class EncryptTest < Minitest::Test
     expected = [58, 83, 38, 82]
     actual = @enigma.create_offset
     assert_equal expected, actual
+
+    expected = [86, 67, 82, 126]
+    actual = @enigma_2.create_offset
+    assert_equal expected, actual
   end
 
   def test_loop_offset_method
     expected = [58, 83, 38, 82, 58, 83, 38, 82, 58, 83, 38, 82]
     actual = @enigma.loop_offset
+    assert_equal expected, actual
+
+    expected = [86, 67, 82, 126, 86, 67, 82, 126, 86, 67, 82, 126]
+    actual = @enigma_2.loop_offset
     assert_equal expected, actual
   end
 
@@ -55,11 +73,19 @@ class EncryptTest < Minitest::Test
     expected = [12, 7, 23, 13, 19, 2, 7, 16, 22, 14, 15]
     actual = @enigma.shift
     assert_equal  expected, actual
+
+    expected = [13, 18, 13, 3, 20, 13, 24, 6, 23, 25, 5]
+    actual = @enigma_2.shift
+    assert_equal  expected, actual
   end
 
   def test_encode_method
     expected = "lgwmsbgpvno"
     actual = @enigma.encode
+    assert_equal expected, actual
+
+    expected = "mrmctmxfwye"
+    actual = @enigma_2.encode
     assert_equal expected, actual
   end
 end

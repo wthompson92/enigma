@@ -1,6 +1,9 @@
 require './lib/helper_module'
+require './lib/reverse_modulo'
 class Decrypt
-  include HelperModule
+    include HelperModule
+    include ReverseModulo
+
   def initialize(message, key, date)
     @message = message
     @key = key.to_i
@@ -8,30 +11,16 @@ class Decrypt
   end
 
   def unshift
-    ords_and_keys = message_ords_to_alpha_nums.zip(loop_offset)
-    ords_and_keys.map do |o_k|
-      ord =  (o_k.first.to_i - o_k.last.to_i).abs
-      if ord > 27
-        ord = ord % 27
-      else
-        ord
-      end
-    end
-  end
-
-  def refine
-    unshift.map do |value|
-      if value == 27
-        then value
-      else
-        27 - value
-      end
+    nums_and_keys = message_chars_to_alpha_nums.zip(loop_offset)
+    a = nums_and_keys.map do |o_k|
+    ord = reverse_modulo(27, o_k.first, o_k.last)
     end
   end
 
   def decode
-    refine.map do |key|
-      create_alphabet_ordninal_value_hash[key]
+    a = unshift.map do |key|
+    create_alphabet_ordninal_value_hash[28] = ' '
+    create_alphabet_ordninal_value_hash[key]
     end.join
   end
 end
