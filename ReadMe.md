@@ -3,3 +3,4 @@
 | OOP  |  X |   |   |   |
 |  Version Control |   |  X |   |   |
 |  TDD |   |  X |   |   |
+|  Functionality |   |  |  X |   |
