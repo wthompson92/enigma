@@ -16,7 +16,7 @@ class EncryptTest < Minitest::Test
 
   def test_it_can_get_give_letters_int_values
     expected = [8, 5, 12, 12, 15, 27, 23, 15, 18, 12, 4]
-    actual = @enigma.message_ords_to_alpha_nums
+    actual = @enigma.message_chars_to_alpha_nums
     assert_equal expected, actual
   end
 

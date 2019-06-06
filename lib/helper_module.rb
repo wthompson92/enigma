@@ -1,17 +1,5 @@
 module HelperModule
 
-  def message_ords_to_alpha_nums
-    chars = @message.downcase.chars
-    ords = chars.map {|char| char.ord}
-    ords.map do |num|
-      if num == 32
-        then num -= 5
-      else
-        num -= 96
-      end
-    end
-  end
-
   def create_alphabet_ordninal_value_hash
     alpha_num = Hash.new
     alphabet = ('a'..'z').to_a << " "
@@ -21,6 +9,13 @@ module HelperModule
       alpha_num[combo[1]] = combo[0]
     end
     alpha_num
+  end
+
+  def message_chars_to_alpha_nums
+    chars = @message.downcase.chars
+    a = chars.map do |char|
+    create_alphabet_ordninal_value_hash.invert[char]
+    end
   end
 
   def create_key
@@ -49,7 +44,7 @@ module HelperModule
   end
 
   def loop_offset
-    number = (message_ords_to_alpha_nums.count / 4).ceil + 1
+    number = (message_chars_to_alpha_nums.count / 4).ceil + 1
     repeat = []
     number.times do
       create_offset.each do |key|
