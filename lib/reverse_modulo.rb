@@ -4,15 +4,16 @@ module ReverseModulo
     add = mod * num.round
     sum = a + add
     reduce = sum - b
-    # case num >= 1
-    # when b > add then reduce
-    # else
-    while reduce > mod do
+    if reduce > mod
       reduce -= mod
-      if reduce == 0
+      elsif reduce == 0
         reduce += mod
-      end 
+      elsif reduce < 0
+       reduce = 27 + reduce
+      else
+        reduce
     end
-    reduce
+  # end
+  reduce
   end
 end
