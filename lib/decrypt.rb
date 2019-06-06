@@ -1,5 +1,5 @@
-require './lib/helper_module'
-require './lib/reverse_modulo'
+require './module/helper_module'
+require './module/reverse_modulo'
 class Decrypt
     include HelperModule
     include ReverseModulo

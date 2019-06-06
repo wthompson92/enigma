@@ -1,7 +1,7 @@
-require './lib/helper_module'
+require './module/helper_module'
 class Encrypt
-
   include HelperModule
+  
   def initialize(message, key, date)
     @message = message
     @key = key

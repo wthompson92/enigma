@@ -1,4 +1,4 @@
-require './lib/test_helper'
+require './test/test_helper'
 require './lib/decrypt'
 require './lib/encrypt'
 require './lib/enigma'
@@ -66,7 +66,7 @@ class EnigmaTest < Minitest::Test
     Enigma.any_instance.stubs(:get_date).returns("040619")
     actual = @enigma.decrypt("lgwmsbgpvno", 54321)
     assert_equal expected, actual
-  
+
 
     expected = {:decryption=>"hello world", :key=>"61941", :date=>"050619"}
     Enigma.any_instance.stubs(:get_date).returns("050619")

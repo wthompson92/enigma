@@ -1,4 +1,4 @@
-require './lib/test_helper'
+require './test/test_helper'
 require './lib/decrypt'
 require './lib/encrypt'
 require 'date'

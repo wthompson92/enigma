@@ -1,6 +1,6 @@
 require './lib/enigma'
 require './lib/encrypt'
-require './lib/helper_module'
+require './module/helper_module'
 
 message = File.open(ARGV[0], "r")
 read = message.read.delete!("\n").split(",")
